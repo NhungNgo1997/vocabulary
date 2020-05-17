@@ -4,16 +4,16 @@ import com.example.apphoctuvung.data.model.Vocabulary;
 
 import java.util.List;
 
-import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Single;
 
 
 public interface VocabularyLocalDataSource {
-    Observable save(Vocabulary vocabulary);
+    Single save(Vocabulary vocabulary);
 
-    Observable delete(Vocabulary vocabulary);
+    Single delete(Vocabulary vocabulary);
 
-    Observable<Vocabulary> read(Vocabulary vocabulary);
+    Single<Vocabulary> read(Vocabulary vocabulary);
 
-    Observable<List<Vocabulary>> readAll();
+    Single<List<Vocabulary>> readAll();
 }
 

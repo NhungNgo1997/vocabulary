@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tra_tu_vung_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -18,25 +20,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="Từ vựng"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
         <EditText
             android:id="@+id/input_vocabulary"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@android:color/transparent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_common"
+            android:hint="Từ vựng..."
             android:imeOptions="actionDone"
             android:inputType="text"
             android:maxLines="1"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
+            android:padding="16dp"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhiteHint"
+            android:textCursorDrawable="@drawable/cursor_drawable"
+            android:textSize="20sp"
+            android:textStyle="normal" />
 
     </LinearLayout>
 
@@ -49,10 +51,21 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:background="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <ProgressBar
+        android:id="@+id/tra_tu_vung_process_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="invisible"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

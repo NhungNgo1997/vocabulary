@@ -2,9 +2,9 @@ package com.example.apphoctuvung.repositories;
 
 import com.example.apphoctuvung.data.model.Vocabulary;
 
-import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Single;
 
 
 public interface VocabularyRepository {
-    Observable<Vocabulary> remoteTranslate(String vocabulary);
+    Single<Vocabulary> remoteTranslate(String vocabulary);
 }

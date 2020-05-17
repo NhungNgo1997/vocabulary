@@ -5,32 +5,32 @@ import com.example.apphoctuvung.data.model.Vocabulary;
 
 import java.util.List;
 
-import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Single;
 
 public class VocabularyLocalDataSourceImpl implements VocabularyLocalDataSource {
     private Storage storage;
 
-    VocabularyLocalDataSourceImpl(Storage storage) {
+    public VocabularyLocalDataSourceImpl(Storage storage) {
         this.storage = storage;
     }
 
     @Override
-    public Observable save(Vocabulary vocabulary) {
+    public Single save(Vocabulary vocabulary) {
         return storage.save(vocabulary);
     }
 
     @Override
-    public Observable delete(Vocabulary vocabulary) {
+    public Single delete(Vocabulary vocabulary) {
         return storage.delete(vocabulary);
     }
 
     @Override
-    public Observable<Vocabulary> read(Vocabulary vocabulary) {
+    public Single<Vocabulary> read(Vocabulary vocabulary) {
         return storage.read(vocabulary);
     }
 
     @Override
-    public Observable<List<Vocabulary>> readAll() {
+    public Single<List<Vocabulary>> readAll() {
         return storage.readAll();
     }
 }
