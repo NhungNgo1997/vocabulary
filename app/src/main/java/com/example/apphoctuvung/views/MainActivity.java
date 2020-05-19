@@ -20,9 +20,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     ActionBarDrawerToggle actionBarDrawerToggle;
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AppContext.context = getApplicationContext();
         drawerLayout = findViewById(R.id.drawerlayout);
         navigationView = findViewById(R.id.navtratuvung);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
