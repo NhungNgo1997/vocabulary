@@ -2,7 +2,6 @@ package com.example.apphoctuvung.views.fragment;
 
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,9 +27,7 @@ import com.example.apphoctuvung.repositories.VocabularyRepository;
 import com.example.apphoctuvung.repositories.VocabularyRepositoryImpl;
 import com.example.apphoctuvung.views.AppContext;
 import com.example.apphoctuvung.views.adapter.TranslateRecyclerAdapter;
-
 import java.util.Locale;
-
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.SingleObserver;

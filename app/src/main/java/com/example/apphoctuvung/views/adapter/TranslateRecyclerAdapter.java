@@ -52,7 +52,6 @@ public class TranslateRecyclerAdapter extends RecyclerView.Adapter<TranslateRecy
         MyViewHolder(TranslateItemBinding viewBinding) {
             super(viewBinding.getRoot().getRootView());
             this.viewBinding = viewBinding;
-            Log.d("ddd", String.valueOf(getAdapterPosition()));
         }
 
         void binding() {

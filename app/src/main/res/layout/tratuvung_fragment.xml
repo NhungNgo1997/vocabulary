@@ -65,6 +65,7 @@
                 android:paddingTop="16dp"
                 android:paddingRight="8dp"
                 android:paddingBottom="16dp"
+                android:layout_gravity="center"
                 android:src="@drawable/ic_volume_up_24dp"
                 android:visibility="gone" />
         </LinearLayout>

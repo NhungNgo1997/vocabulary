@@ -13,10 +13,7 @@ public class Vocabulary {
     public Vocabulary(String vocabulary, String ipa, List<Detail> details, List<String> also, List<String> browses) {
         this.vocabulary = vocabulary;
         this.ipa = ipa;
-        this.details = new ArrayList<Detail>();
-        for (Detail detail : details) {
-            this.details.add(detail.copy());
-        }
+        this.details = details;
         this.also = also;
         this.browses = browses;
     }

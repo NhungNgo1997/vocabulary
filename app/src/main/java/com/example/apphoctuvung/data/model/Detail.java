@@ -5,29 +5,18 @@ import java.util.List;
 
 public class Detail {
     private String pos;
-    private ArrayList<Mean> means;
+    private List<Mean> means;
 
     public Detail(String pos, List<Mean> means) {
         this.pos = pos;
-        this.means = new ArrayList<Mean>();
-        for (Mean mean : means) {
-            this.means.add(mean.copy());
-        }
+        this.means = means;
     }
 
     public String getPos() {
         return pos;
     }
 
-    public ArrayList<Mean> getMeans() {
+    public List<Mean> getMeans() {
         return means;
-    }
-
-    public Detail copy() {
-        final ArrayList<Mean> newMeans = new ArrayList<Mean>();
-        for (Mean mean : means) {
-            newMeans.add(mean.copy());
-        }
-        return new Detail(this.pos, newMeans);
     }
 }
