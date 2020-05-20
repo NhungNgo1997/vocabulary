@@ -4,7 +4,6 @@ import com.example.apphoctuvung.data.Services;
 import com.example.apphoctuvung.data.model.Vocabulary;
 
 import io.reactivex.rxjava3.core.Single;
-import io.reactivex.rxjava3.core.Single;
 
 public class VocabularyRemoteDataSourceImpl implements VocabularyRemoteDataSource {
     private Services services;

@@ -9,13 +9,14 @@ import io.reactivex.rxjava3.core.Single;
 
 
 public interface VocabularyLocalDataSource {
-    Single save(Vocabulary vocabulary);
+    Single<Vocabulary> save(Vocabulary vocabulary);
 
-    Single delete(Vocabulary vocabulary);
+    Single<Vocabulary> delete(Vocabulary vocabulary);
 
     Single<Vocabulary> read(Vocabulary vocabulary);
 
     Single<List<Vocabulary>> readAll();
+
     Single<List<Alphabet>> readAlphabet();
 }
 

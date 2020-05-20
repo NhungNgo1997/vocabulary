@@ -8,9 +8,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chauthai.swipereveallayout.SwipeRevealLayout;
 import com.example.apphoctuvung.R;
 import com.example.apphoctuvung.data.model.Vocabulary;
 import com.example.apphoctuvung.databinding.VocabularyItemBinding;
+import com.example.apphoctuvung.views.App;
 import com.example.apphoctuvung.views.VocabularyEvent;
 
 import java.util.ArrayList;
@@ -32,7 +34,6 @@ public class VocabularyRecyclerAdapter extends RecyclerView.Adapter<VocabularyRe
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.d("dmmmmmm", "ddd");
         final LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         final View view = layoutInflater.inflate(R.layout.vocabulary_item, parent, false);
         return new MyViewHolder(VocabularyItemBinding.bind(view));
@@ -68,6 +69,31 @@ public class VocabularyRecyclerAdapter extends RecyclerView.Adapter<VocabularyRe
                     event.onSpeakPressed(vocabularies.get(getAdapterPosition()).getVocabulary());
                 }
             });
+            viewBinding.vocabularyItem.setSwipeListener(new SwipeRevealLayout.SwipeListener() {
+                @Override
+                public void onClosed(SwipeRevealLayout view) {
+
+                }
+
+                @Override
+                public void onOpened(SwipeRevealLayout view) {
+                    viewBinding.delete.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            App.vocabularyRepository.delete(vocabularies.get(getAdapterPosition()));
+                            vocabularies.remove(getAdapterPosition());
+                            viewBinding.vocabularyItem.close(true);
+                            notifyDataSetChanged();
+                        }
+                    });
+                }
+
+                @Override
+                public void onSlide(SwipeRevealLayout view, float slideOffset) {
+
+                }
+            });
+
         }
     }
 }

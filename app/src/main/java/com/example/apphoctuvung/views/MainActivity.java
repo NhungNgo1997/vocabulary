@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AppContext.context = getApplicationContext();
         drawerLayout = findViewById(R.id.drawerlayout);
         navigationView = findViewById(R.id.navtratuvung);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new OnTapTuVungFragment()).commit();
                 break;
             case R.id.hocbangchucai:
-                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,new HocAlphabetFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new HocAlphabetFragment()).commit();
                 break;
             default:
                 break;

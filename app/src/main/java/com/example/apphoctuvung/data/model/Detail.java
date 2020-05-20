@@ -1,22 +1,25 @@
 package com.example.apphoctuvung.data.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import io.realm.RealmList;
+import io.realm.RealmObject;
 
-public class Detail {
+public class Detail extends RealmObject {
     private String pos;
-    private List<Mean> means;
-
-    public Detail(String pos, List<Mean> means) {
-        this.pos = pos;
-        this.means = means;
-    }
+    private RealmList<Mean> means;
 
     public String getPos() {
         return pos;
     }
 
-    public List<Mean> getMeans() {
+    public RealmList<Mean> getMeans() {
         return means;
+    }
+
+    public void setPos(String pos) {
+        this.pos = pos;
+    }
+
+    public void setMeans(RealmList<Mean> means) {
+        this.means = means;
     }
 }

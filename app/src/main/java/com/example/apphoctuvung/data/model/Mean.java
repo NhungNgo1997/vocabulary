@@ -1,22 +1,25 @@
 package com.example.apphoctuvung.data.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import io.realm.RealmList;
+import io.realm.RealmObject;
 
-public class Mean {
+public class Mean extends RealmObject {
     private String mean;
-    private List<String> example;
-
-    public Mean(String mean, List<String> example) {
-        this.mean = mean;
-        this.example = example;
-    }
+    private RealmList<String> example;
 
     public String getMean() {
         return mean;
     }
 
-    public List<String> getExample() {
+    public RealmList<String> getExample() {
         return example;
+    }
+
+    public void setMean(String mean) {
+        this.mean = mean;
+    }
+
+    public void setExample(RealmList<String> example) {
+        this.example = example;
     }
 }

@@ -1,40 +1,54 @@
 package com.example.apphoctuvung.data.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import io.realm.RealmList;
+import io.realm.RealmObject;
 
-public class Vocabulary {
+public class Vocabulary extends RealmObject {
     private String vocabulary;
     private String ipa;
-    private List<Detail> details;
-    private List<String> also;
-    private List<String> browses;
-
-    public Vocabulary(String vocabulary, String ipa, List<Detail> details, List<String> also, List<String> browses) {
-        this.vocabulary = vocabulary;
-        this.ipa = ipa;
-        this.details = details;
-        this.also = also;
-        this.browses = browses;
-    }
 
     public String getVocabulary() {
         return vocabulary;
+    }
+
+    public void setVocabulary(String vocabulary) {
+        this.vocabulary = vocabulary;
     }
 
     public String getIpa() {
         return ipa;
     }
 
-    public List<Detail> getDetails() {
+    public void setIpa(String ipa) {
+        this.ipa = ipa;
+    }
+
+    public RealmList<Detail> getDetails() {
         return details;
     }
 
-    public List<String> getAlso() {
+    public void setDetails(RealmList<Detail> details) {
+        this.details = details;
+    }
+
+    public RealmList<String> getAlso() {
         return also;
     }
 
-    public List<String> getBrowses() {
+    public void setAlso(RealmList<String> also) {
+        this.also = also;
+    }
+
+    public RealmList<String> getBrowses() {
         return browses;
     }
+
+    public void setBrowses(RealmList<String> browses) {
+        this.browses = browses;
+    }
+
+    private RealmList<Detail> details;
+    private RealmList<String> also;
+    private RealmList<String> browses;
+
 }
