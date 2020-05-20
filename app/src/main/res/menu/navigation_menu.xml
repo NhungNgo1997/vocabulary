@@ -16,6 +16,11 @@
         android:title="Ôn Tập Từ Vựng"
         />
     <item
+        android:id="@+id/hocbangchucai"
+        android:icon="@drawable/ic_sort_by_alpha_black_24dp"
+        android:title="Học Alphabet"
+        />
+    <item
         android:id="@+id/thoat"
         android:icon="@drawable/thoat"
         android:title="Thoát"

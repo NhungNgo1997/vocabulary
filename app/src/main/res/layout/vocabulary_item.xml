@@ -5,7 +5,10 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp">
+    android:paddingRight="16dp"
+    android:layout_marginBottom="10dp"
+    android:background="#DADBDD"
+   >
 
     <LinearLayout
         android:layout_width="match_parent"

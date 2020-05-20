@@ -11,6 +11,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.apphoctuvung.R;
 import com.example.apphoctuvung.views.fragment.DanhSachTuVungFragment;
+import com.example.apphoctuvung.views.fragment.HocAlphabetFragment;
 import com.example.apphoctuvung.views.fragment.OnTapTuVungFragment;
 import com.example.apphoctuvung.views.fragment.TraTuVungFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -56,6 +57,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.ontap:
                 getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new OnTapTuVungFragment()).commit();
+                break;
+            case R.id.hocbangchucai:
+                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,new HocAlphabetFragment()).commit();
                 break;
             default:
                 break;

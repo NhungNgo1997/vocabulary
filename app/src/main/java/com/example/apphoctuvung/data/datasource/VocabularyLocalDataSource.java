@@ -1,5 +1,6 @@
 package com.example.apphoctuvung.data.datasource;
 
+import com.example.apphoctuvung.data.model.Alphabet;
 import com.example.apphoctuvung.data.model.Vocabulary;
 
 import java.util.List;
@@ -15,5 +16,6 @@ public interface VocabularyLocalDataSource {
     Single<Vocabulary> read(Vocabulary vocabulary);
 
     Single<List<Vocabulary>> readAll();
+    Single<List<Alphabet>> readAlphabet();
 }
 

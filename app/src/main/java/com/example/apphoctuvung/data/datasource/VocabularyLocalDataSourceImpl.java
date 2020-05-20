@@ -1,6 +1,7 @@
 package com.example.apphoctuvung.data.datasource;
 
 import com.example.apphoctuvung.data.Storage;
+import com.example.apphoctuvung.data.model.Alphabet;
 import com.example.apphoctuvung.data.model.Detail;
 import com.example.apphoctuvung.data.model.Mean;
 import com.example.apphoctuvung.data.model.Vocabulary;
@@ -34,15 +35,45 @@ public class VocabularyLocalDataSourceImpl implements VocabularyLocalDataSource 
 
     @Override
     public Single<List<Vocabulary>> readAll() {
-        return Single.just(Arrays.asList(new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
-                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
-                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
-                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
-                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
-                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
-                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
-                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
-                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
-                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList(""))));
+        return Single.just(Arrays.asList(new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("xin chào", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
+                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("xin chào", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
+                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("xin chào", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
+                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("xin chào", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
+                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("xin chào", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
+                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("xin chào", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
+                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("xin chào", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
+                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("xin chào", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
+                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("xin chào", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList("")),
+                new Vocabulary("Hello", "\"/həˈləu/\"", Arrays.asList(new Detail("Noun", Arrays.asList(new Mean("xin chào", Arrays.asList(""))))), Arrays.asList(""), Arrays.asList(""))));
+    }
+@Override
+    public Single<List<Alphabet>> readAlphabet(){
+        return Single.just(Arrays.asList(new Alphabet("A","/eɪ/"),
+                new Alphabet("B","/biː/"),
+                new Alphabet("C","/siː/"),
+                new Alphabet("D","/diː/"),
+                new Alphabet("E","/iː/"),
+                new Alphabet("F","/ɛf/"),
+                new Alphabet("G","/dʒiː/"),
+                new Alphabet("H","/eɪtʃ/"),
+                new Alphabet("I","/aɪ/"),
+                new Alphabet("J","/dʒeɪ/"),
+                new Alphabet("K","/keɪ/"),
+                new Alphabet("L","/ɛl/"),
+                new Alphabet("M","/ɛm/"),
+                new Alphabet("N","/ɛn/"),
+                new Alphabet("O","/oʊ/"),
+                new Alphabet("P","/piː/"),
+                new Alphabet("Q","/kjuː/"),
+                new Alphabet("R","/ɑr/"),
+                new Alphabet("S","/ɛs/"),
+                new Alphabet("T","/tiː/"),
+                new Alphabet("U","/juː/"),
+                new Alphabet("V","/viː/"),
+                new Alphabet("W","/ˈdʌbəl.juː/"),
+                new Alphabet("X","/ɛks/"),
+                new Alphabet("Y","/waɪ/"),
+                new Alphabet("Z","/zɛd/")));
+
     }
 }
