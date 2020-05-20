@@ -13,7 +13,6 @@ import com.example.apphoctuvung.R;
 
 public class OnTapTuVungFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.ontaptuvung_fragment,container,false);
-        return view;
+        return inflater.inflate(R.layout.ontaptuvung_fragment, container, false);
     }
 }

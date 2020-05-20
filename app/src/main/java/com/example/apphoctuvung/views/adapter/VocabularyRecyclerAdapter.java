@@ -1,6 +1,5 @@
 package com.example.apphoctuvung.views.adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,7 @@ import java.util.List;
 
 public class VocabularyRecyclerAdapter extends RecyclerView.Adapter<VocabularyRecyclerAdapter.MyViewHolder> {
     private VocabularyEvent event;
-    private ArrayList<Vocabulary> vocabularies = new ArrayList<Vocabulary>();
+    private ArrayList<Vocabulary> vocabularies = new ArrayList<>();
 
     public VocabularyRecyclerAdapter(VocabularyEvent event) {
         this.event = event;
@@ -63,12 +62,7 @@ public class VocabularyRecyclerAdapter extends RecyclerView.Adapter<VocabularyRe
             viewBinding.ipa.setText(vocabularies.get(getAdapterPosition()).getIpa());
             viewBinding.pos.setText(vocabularies.get(getAdapterPosition()).getDetails().get(0).getPos());
             viewBinding.mean.setText(vocabularies.get(getAdapterPosition()).getDetails().get(0).getMeans().get(0).getMean());
-            viewBinding.speaker.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    event.onSpeakPressed(vocabularies.get(getAdapterPosition()).getVocabulary());
-                }
-            });
+            viewBinding.speaker.setOnClickListener(v -> event.onSpeakPressed(vocabularies.get(getAdapterPosition()).getVocabulary()));
             viewBinding.vocabularyItem.setSwipeListener(new SwipeRevealLayout.SwipeListener() {
                 @Override
                 public void onClosed(SwipeRevealLayout view) {
@@ -77,14 +71,11 @@ public class VocabularyRecyclerAdapter extends RecyclerView.Adapter<VocabularyRe
 
                 @Override
                 public void onOpened(SwipeRevealLayout view) {
-                    viewBinding.delete.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            App.vocabularyRepository.delete(vocabularies.get(getAdapterPosition()));
-                            vocabularies.remove(getAdapterPosition());
-                            viewBinding.vocabularyItem.close(true);
-                            notifyDataSetChanged();
-                        }
+                    viewBinding.delete.setOnClickListener(v -> {
+                        App.vocabularyRepository.delete(vocabularies.get(getAdapterPosition()));
+                        vocabularies.remove(getAdapterPosition());
+                        viewBinding.vocabularyItem.close(true);
+                        notifyDataSetChanged();
                     });
                 }
 

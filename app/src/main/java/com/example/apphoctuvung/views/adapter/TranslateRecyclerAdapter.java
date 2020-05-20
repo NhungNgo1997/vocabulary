@@ -2,7 +2,6 @@ package com.example.apphoctuvung.views.adapter;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,7 @@ import java.util.List;
 
 public class TranslateRecyclerAdapter extends RecyclerView.Adapter<TranslateRecyclerAdapter.MyViewHolder> {
 
-    private ArrayList<Detail> details = new ArrayList<Detail>();
+    private ArrayList<Detail> details = new ArrayList<>();
 
     public void setDetails(List<Detail> details) {
         this.details.clear();

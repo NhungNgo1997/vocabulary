@@ -1,13 +1,10 @@
 package com.example.apphoctuvung.views.fragment;
 
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,53 +40,39 @@ public class TraTuVungFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         binding.listTranslate.setAdapter(recyclerAdapter);
         binding.listTranslate.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        binding.inputVocabulary.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+        binding.inputVocabulary.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                final String keyWord = v.getText().toString();
+                binding.traTuVungProcessBar.setVisibility(View.VISIBLE);
+                App.vocabularyRepository.remoteTranslate(keyWord)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new SingleObserver<Vocabulary>() {
+                            @Override
+                            public void onSubscribe(@io.reactivex.rxjava3.annotations.NonNull Disposable d) {
+                            }
 
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    final String keyWord = v.getText().toString();
-                    binding.traTuVungProcessBar.setVisibility(View.VISIBLE);
-                    App.vocabularyRepository.remoteTranslate(keyWord)
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(new SingleObserver<Vocabulary>() {
-                                @Override
-                                public void onSubscribe(@io.reactivex.rxjava3.annotations.NonNull Disposable d) {
-                                }
+                            @Override
+                            public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull Vocabulary vocabulary) {
+                                binding.ipa.setText(vocabulary.getIpa());
+                                recyclerAdapter.setDetails(vocabulary.getDetails());
+                                recyclerAdapter.notifyDataSetChanged();
+                                binding.traTuVungProcessBar.setVisibility(View.GONE);
+                                binding.speaker.setVisibility(View.VISIBLE);
+                                binding.star.setVisibility(View.VISIBLE);
+                                lastVocabulary = vocabulary;
+                            }
 
-                                @Override
-                                public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull Vocabulary vocabulary) {
-                                    binding.ipa.setText(vocabulary.getIpa());
-                                    recyclerAdapter.setDetails(vocabulary.getDetails());
-                                    recyclerAdapter.notifyDataSetChanged();
-                                    binding.traTuVungProcessBar.setVisibility(View.GONE);
-                                    binding.speaker.setVisibility(View.VISIBLE);
-                                    binding.star.setVisibility(View.VISIBLE);
-                                    lastVocabulary = vocabulary;
-                                }
-
-                                @Override
-                                public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
-                                    binding.traTuVungProcessBar.setVisibility(View.GONE);
-                                }
-                            });
-                }
-                return false;
+                            @Override
+                            public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                                binding.traTuVungProcessBar.setVisibility(View.GONE);
+                            }
+                        });
             }
+            return false;
         });
-        binding.speaker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                App.textToSpeechDataSource.speak(lastVocabulary.getVocabulary());
-            }
-        });
-        binding.star.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                App.vocabularyRepository.save(lastVocabulary);
-            }
-        });
+        binding.speaker.setOnClickListener(v -> App.textToSpeechDataSource.speak(lastVocabulary.getVocabulary()));
+        binding.star.setOnClickListener(v -> App.vocabularyRepository.save(lastVocabulary));
 
     }
 }

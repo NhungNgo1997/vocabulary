@@ -1,5 +1,6 @@
 package com.example.apphoctuvung.views;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.speech.tts.TextToSpeech;
 
@@ -22,29 +23,38 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class App extends Application {
-    final private static Services services = new Retrofit.Builder()
+    @SuppressLint("StaticFieldLeak")
+    private static Services services = new Retrofit.Builder()
             .baseUrl(ApiUrl.baseDomain)
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(Services.class);
-    final private static VocabularyRemoteDataSource vocabularyRemoteDataSource = new VocabularyRemoteDataSourceImpl(services);
-    final private static VocabularyLocalDataSource vocabularyLocalDataSource = new VocabularyLocalDataSourceImpl(new Storage());
-    public final static VocabularyRepository vocabularyRepository = new VocabularyRepositoryImpl(vocabularyRemoteDataSource, vocabularyLocalDataSource);
-    static TextToSpeech tts;
+    private static VocabularyRemoteDataSource vocabularyRemoteDataSource = new VocabularyRemoteDataSourceImpl(services);
+    private static VocabularyLocalDataSource vocabularyLocalDataSource = new VocabularyLocalDataSourceImpl(new Storage());
+    public static VocabularyRepository vocabularyRepository = new VocabularyRepositoryImpl(vocabularyRemoteDataSource, vocabularyLocalDataSource);
+    private static TextToSpeech tts;
     public static TextToSpeechDataSourceImpl textToSpeechDataSource;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        AppContext.context = getApplicationContext();
-        Realm.init(AppContext.context);
-        App.tts = new TextToSpeech(AppContext.context, new TextToSpeech.OnInitListener() {
+        Realm.init(getApplicationContext());
+        App.tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 tts.setLanguage(Locale.ENGLISH);
             }
         });
         App.textToSpeechDataSource = new TextToSpeechDataSourceImpl(tts);
+    }
+
+    public static void dispose() {
+        services = null;
+        vocabularyRemoteDataSource = null;
+        vocabularyLocalDataSource = null;
+        vocabularyRepository = null;
+        tts = null;
+        textToSpeechDataSource = null;
     }
 }
