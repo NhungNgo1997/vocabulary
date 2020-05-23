@@ -1,12 +1,8 @@
 package com.example.apphoctuvung.views.adapter;
 
-import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,7 +12,6 @@ import com.example.apphoctuvung.R;
 import com.example.apphoctuvung.data.model.Vocabulary;
 import com.example.apphoctuvung.databinding.VocabularyItemBinding;
 import com.example.apphoctuvung.views.App;
-import com.example.apphoctuvung.views.VocabularyDetails;
 import com.example.apphoctuvung.views.VocabularyEvent;
 
 import java.util.ArrayList;
@@ -27,10 +22,7 @@ public class VocabularyRecyclerAdapter extends RecyclerView.Adapter<VocabularyRe
     private VocabularyEvent event;
     private ArrayList<Vocabulary> vocabularies = new ArrayList<>();
 
-
-
     public VocabularyRecyclerAdapter(VocabularyEvent event) {
-
         this.event = event;
     }
 
@@ -66,15 +58,15 @@ public class VocabularyRecyclerAdapter extends RecyclerView.Adapter<VocabularyRe
             this.viewBinding = viewBinding;
 
 
-
         }
 
         void binding() {
-            viewBinding.vocabulary.setText(vocabularies.get(getAdapterPosition()).getVocabulary());
-            viewBinding.ipa.setText(vocabularies.get(getAdapterPosition()).getIpa());
-            viewBinding.pos.setText(vocabularies.get(getAdapterPosition()).getDetails().get(0).getPos());
-            viewBinding.mean.setText(vocabularies.get(getAdapterPosition()).getDetails().get(0).getMeans().get(0).getMean());
-            viewBinding.speaker.setOnClickListener(v -> event.onSpeakPressed(vocabularies.get(getAdapterPosition()).getVocabulary()));
+            final Vocabulary vocabulary = vocabularies.get(getAdapterPosition());
+            viewBinding.vocabulary.setText(vocabulary.getVocabulary());
+            viewBinding.ipa.setText(vocabulary.getIpa());
+            viewBinding.pos.setText(vocabulary.getDetails().get(0).getPos());
+            viewBinding.mean.setText(vocabulary.getDetails().get(0).getMeans().get(0).getMean());
+            viewBinding.speaker.setOnClickListener(v -> event.onSpeakPressed(vocabulary.getVocabulary()));
 
             viewBinding.vocabularyItem.setSwipeListener(new SwipeRevealLayout.SwipeListener() {
                 @Override
@@ -97,7 +89,12 @@ public class VocabularyRecyclerAdapter extends RecyclerView.Adapter<VocabularyRe
 
                 }
             });
-
+            viewBinding.layoutVocabulary.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    event.onItemPressed(vocabulary);
+                }
+            });
 
         }
     }

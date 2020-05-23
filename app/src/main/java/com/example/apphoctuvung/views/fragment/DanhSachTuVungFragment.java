@@ -1,5 +1,6 @@
 package com.example.apphoctuvung.views.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.example.apphoctuvung.R;
 import com.example.apphoctuvung.data.model.Vocabulary;
 import com.example.apphoctuvung.databinding.DanhsachtuvungFragmentBinding;
 import com.example.apphoctuvung.views.App;
+import com.example.apphoctuvung.views.VocabularyDetails;
 import com.example.apphoctuvung.views.VocabularyEvent;
 import com.example.apphoctuvung.views.adapter.VocabularyRecyclerAdapter;
 
@@ -66,5 +68,11 @@ public class DanhSachTuVungFragment extends Fragment implements VocabularyEvent 
     @Override
     public void onSpeakPressed(String vocabulary) {
         App.textToSpeechDataSource.speak(vocabulary);
+    }
+
+    @Override
+    public void onItemPressed(Vocabulary vocabulary) {
+        final Intent intent = new Intent(requireActivity(), VocabularyDetails.class);
+        startActivity(intent);
     }
 }

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.apphoctuvung.R;
 import com.example.apphoctuvung.data.model.Alphabet;
+import com.example.apphoctuvung.data.model.Vocabulary;
 import com.example.apphoctuvung.databinding.HocalphabetFragmentBinding;
 import com.example.apphoctuvung.views.App;
 import com.example.apphoctuvung.views.VocabularyEvent;
@@ -66,6 +67,10 @@ public class HocAlphabetFragment extends Fragment implements VocabularyEvent {
     @Override
     public void onSpeakPressed(String vocabulary) {
         App.textToSpeechDataSource.speak(vocabulary);
+    }
+
+    @Override
+    public void onItemPressed(Vocabulary vocabulary) {
     }
 
 }
