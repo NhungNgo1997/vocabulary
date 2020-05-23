@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -52,6 +53,7 @@ public class DanhSachTuVungFragment extends Fragment implements VocabularyEvent 
                     public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull List<Vocabulary> vocabularies) {
                         adapter.setVocabularies(vocabularies);
                         adapter.notifyDataSetChanged();
+
                     }
 
                     @Override

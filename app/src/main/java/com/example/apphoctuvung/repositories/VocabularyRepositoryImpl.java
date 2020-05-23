@@ -5,6 +5,8 @@ import com.example.apphoctuvung.data.datasource.VocabularyRemoteDataSource;
 import com.example.apphoctuvung.data.model.Alphabet;
 import com.example.apphoctuvung.data.model.Vocabulary;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.rxjava3.core.Single;
@@ -46,5 +48,11 @@ public class VocabularyRepositoryImpl implements VocabularyRepository {
     @Override
     public Single<List<Alphabet>> readAlphabet() {
         return localDataSource.readAlphabet();
+    }
+
+    @Override
+    public Single<List<Vocabulary>> readRandom() {
+        // TODO: 1. readAll 2.get size readAll 3. Random 0-size 4
+        return null;
     }
 }

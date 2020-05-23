@@ -1,8 +1,12 @@
 package com.example.apphoctuvung.views.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,16 +16,21 @@ import com.example.apphoctuvung.R;
 import com.example.apphoctuvung.data.model.Vocabulary;
 import com.example.apphoctuvung.databinding.VocabularyItemBinding;
 import com.example.apphoctuvung.views.App;
+import com.example.apphoctuvung.views.VocabularyDetails;
 import com.example.apphoctuvung.views.VocabularyEvent;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class VocabularyRecyclerAdapter extends RecyclerView.Adapter<VocabularyRecyclerAdapter.MyViewHolder> {
+
     private VocabularyEvent event;
     private ArrayList<Vocabulary> vocabularies = new ArrayList<>();
 
+
+
     public VocabularyRecyclerAdapter(VocabularyEvent event) {
+
         this.event = event;
     }
 
@@ -55,6 +64,9 @@ public class VocabularyRecyclerAdapter extends RecyclerView.Adapter<VocabularyRe
         MyViewHolder(VocabularyItemBinding viewBinding) {
             super(viewBinding.getRoot().getRootView());
             this.viewBinding = viewBinding;
+
+
+
         }
 
         void binding() {
@@ -63,6 +75,7 @@ public class VocabularyRecyclerAdapter extends RecyclerView.Adapter<VocabularyRe
             viewBinding.pos.setText(vocabularies.get(getAdapterPosition()).getDetails().get(0).getPos());
             viewBinding.mean.setText(vocabularies.get(getAdapterPosition()).getDetails().get(0).getMeans().get(0).getMean());
             viewBinding.speaker.setOnClickListener(v -> event.onSpeakPressed(vocabularies.get(getAdapterPosition()).getVocabulary()));
+
             viewBinding.vocabularyItem.setSwipeListener(new SwipeRevealLayout.SwipeListener() {
                 @Override
                 public void onClosed(SwipeRevealLayout view) {
@@ -84,6 +97,7 @@ public class VocabularyRecyclerAdapter extends RecyclerView.Adapter<VocabularyRe
 
                 }
             });
+
 
         }
     }

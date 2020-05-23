@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
-    android:background="#DADBDD"
+    android:background="#EAEDF4"
     android:orientation="vertical"
     app:dragEdge="right"
     app:mode="same_level">
@@ -67,8 +67,8 @@
             android:id="@+id/ipa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary"
-            android:textSize="13sp"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp"
             android:textStyle="normal" />
 
         <TextView
@@ -76,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:textStyle="italic" />
 
 
@@ -85,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="3dp"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorAccent"
             android:textSize="15sp"
             android:textStyle="italic" />
     </LinearLayout>

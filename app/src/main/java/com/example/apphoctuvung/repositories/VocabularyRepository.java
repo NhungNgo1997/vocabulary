@@ -20,4 +20,6 @@ public interface VocabularyRepository {
     Single<List<Vocabulary>> readAll();
 
     Single<List<Alphabet>> readAlphabet();
+
+    Single<List<Vocabulary>> readRandom();
 }
