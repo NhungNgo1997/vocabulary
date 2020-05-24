@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    private TraTuVungFragment traTuVungFrag = new TraTuVungFragment();
+    private DanhSachTuVungFragment dsTuVungFrag = new DanhSachTuVungFragment();
+    private OnTapTuVungFragment onTapTuVungFrag = new OnTapTuVungFragment();
+    private HocAlphabetFragment hocBangChuCai = new HocAlphabetFragment();
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         actionBarDrawerToggle.syncState();
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new TraTuVungFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, traTuVungFrag).commit();
         navigationView.setCheckedItem(R.id.navtratuvung);
         navigationView.setNavigationItemSelectedListener(MainActivity.this);
     }
@@ -53,16 +57,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.tratuvung:
-                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new TraTuVungFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, traTuVungFrag).commit();
                 break;
             case R.id.danhsach:
-                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new DanhSachTuVungFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, dsTuVungFrag).commit();
                 break;
             case R.id.ontap:
-                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new OnTapTuVungFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, onTapTuVungFrag).commit();
                 break;
             case R.id.hocbangchucai:
-                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new HocAlphabetFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, hocBangChuCai).commit();
                 break;
             default:
                 break;
@@ -84,6 +88,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onDestroy() {
         super.onDestroy();
-       App.dispose();
+        App.dispose();
     }
 }

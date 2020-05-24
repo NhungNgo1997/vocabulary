@@ -18,5 +18,7 @@ public interface VocabularyLocalDataSource {
     Single<List<Vocabulary>> readAll();
 
     Single<List<Alphabet>> readAlphabet();
+
+    Single<Vocabulary> readRandom();
 }
 

@@ -51,8 +51,7 @@ public class VocabularyRepositoryImpl implements VocabularyRepository {
     }
 
     @Override
-    public Single<List<Vocabulary>> readRandom() {
-        // TODO: 1. readAll 2.get size readAll 3. Random 0-size 4
-        return null;
+    public Single<Vocabulary> readRandom() {
+      return localDataSource.readRandom();
     }
 }
