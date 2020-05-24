@@ -1,5 +1,7 @@
 package com.example.apphoctuvung.data;
 
+import android.util.Log;
+
 import com.example.apphoctuvung.data.model.Vocabulary;
 
 import java.util.Collections;
@@ -55,7 +57,7 @@ public class Storage {
         return Single.just(results);
     }
 
-    public Single<Vocabulary> readRandom(){
+    public Single<Vocabulary> readRandom() {
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         RealmResults<Vocabulary> realmResults = realm.where(Vocabulary.class).findAll();
@@ -63,7 +65,7 @@ public class Storage {
         Collections.reverse(results);
         realm.commitTransaction();
         realm.close();
-        int randomNum = ThreadLocalRandom.current().nextInt(0, results.size());
+        int randomNum = new Random().nextInt((results.size() - 1) + 1);
         return Single.just(results.get(randomNum));
     }
 }
