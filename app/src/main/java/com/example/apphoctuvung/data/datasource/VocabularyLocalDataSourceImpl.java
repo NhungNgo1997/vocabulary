@@ -35,6 +35,7 @@ public class VocabularyLocalDataSourceImpl implements VocabularyLocalDataSource 
     public Single<List<Vocabulary>> readAll() {
         return storage.readAll();
     }
+    public Single<Vocabulary> readRandom(){return storage.readRandom();}
 
     @Override
     public Single<List<Alphabet>> readAlphabet() {

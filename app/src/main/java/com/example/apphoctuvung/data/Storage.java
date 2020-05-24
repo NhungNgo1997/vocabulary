@@ -4,6 +4,8 @@ import com.example.apphoctuvung.data.model.Vocabulary;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import io.reactivex.rxjava3.core.Single;
 import io.realm.Realm;
@@ -51,5 +53,17 @@ public class Storage {
         realm.commitTransaction();
         realm.close();
         return Single.just(results);
+    }
+
+    public Single<Vocabulary> readRandom(){
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        RealmResults<Vocabulary> realmResults = realm.where(Vocabulary.class).findAll();
+        List<Vocabulary> results = realm.copyFromRealm(realmResults);
+        Collections.reverse(results);
+        realm.commitTransaction();
+        realm.close();
+        int randomNum = ThreadLocalRandom.current().nextInt(0, results.size());
+        return Single.just(results.get(randomNum));
     }
 }

@@ -21,5 +21,5 @@ public interface VocabularyRepository {
 
     Single<List<Alphabet>> readAlphabet();
 
-    Single<List<Vocabulary>> readRandom();
+    Single<Vocabulary> readRandom();
 }
