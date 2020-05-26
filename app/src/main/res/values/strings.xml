@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">AppHocTuVung</string>
+    <string name="app_name">Học Từ Vựng Online</string>
     <string name="open" />
     <string name="close" />
+    <string name="title_danhsachtuvung_fragment">Danh Sách Từ Vựng</string>
 
 </resources>

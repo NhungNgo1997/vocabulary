@@ -74,5 +74,6 @@ public class DanhSachTuVungFragment extends Fragment implements VocabularyEvent 
     public void onItemPressed(Vocabulary vocabulary) {
         final Intent intent = new Intent(requireActivity(), VocabularyDetails.class);
         startActivity(intent);
+
     }
 }

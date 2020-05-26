@@ -68,6 +68,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.hocbangchucai:
                     getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, hocBangChuCai).commit();
                 break;
+            case R.id.thoat:
+                finish();
+                break;
             default:
                 break;
         }

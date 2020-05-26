@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="20dp"
         android:text="Nghe và viết lại"
         android:textColor="@color/colorPrimary"
         android:textSize="30dp"
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/voice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
         android:id="@+id/edittu"
         android:layout_width="match_parent"
         android:layout_height="59dp"
-        android:layout_marginTop="147dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/border_common"
         android:hint="Gõ lại từ bạn được nghe.."
         android:imeOptions="actionDone"
@@ -57,32 +57,75 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagevoice" />
+    <LinearLayout
+        android:id="@+id/line1"
+        app:layout_constraintTop_toBottomOf="@+id/edittu"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btncheck"
-        android:layout_width="95dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/border_common"
-        android:text="Check"
-        android:textColor="@color/colorWhite"
+        <Button
+            android:id="@+id/btncheck"
+            android:layout_width="95dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/border_common"
+            android:text="Check"
+            android:textColor="@color/colorWhite"
+           />
+        <Button
+            android:id="@+id/btnnext"
+            android:layout_width="95dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/border_common"
+            android:text=">>"
+            android:textColor="@color/colorWhite"
+
+            />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/ipa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingTop="10dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="16dp"
+        android:textColor="@color/colorAccent"
+        android:textStyle="italic"
+        app:layout_constraintTop_toBottomOf="@id/line1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_translate"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/colorWhite"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittu" />
+        app:layout_constraintTop_toBottomOf="@id/ipa" />
 
-    <Button
-        android:id="@+id/btnnext"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/circler_common"
-        android:text=">>"
-        android:textColor="@color/colorWhite"
+    <ProgressBar
+        android:id="@+id/tra_tu_vung_process_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        style="?android:attr/borderlessButtonStyle"
-        />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
