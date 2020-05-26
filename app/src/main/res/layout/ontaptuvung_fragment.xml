@@ -100,6 +100,7 @@
         app:layout_constraintTop_toBottomOf="@id/line1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_translate"
         android:layout_width="match_parent"
