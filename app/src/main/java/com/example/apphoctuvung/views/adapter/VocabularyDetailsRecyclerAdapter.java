@@ -33,7 +33,7 @@ public class VocabularyDetailsRecyclerAdapter extends RecyclerView.Adapter<Vocab
     @Override
     public VocabularyDetailsRecyclerAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         final LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        final View view = layoutInflater.inflate(R.layout.translate_item, parent, false);
+        final View view = layoutInflater.from(parent.getContext()).inflate(R.layout.translate_item, parent, false);
         return new VocabularyDetailsRecyclerAdapter.MyViewHolder(TranslateItemBinding.bind(view));
     }
 

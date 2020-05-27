@@ -19,6 +19,7 @@ import com.example.apphoctuvung.views.App;
 import com.example.apphoctuvung.views.VocabularyDetails;
 import com.example.apphoctuvung.views.VocabularyEvent;
 import com.example.apphoctuvung.views.adapter.VocabularyRecyclerAdapter;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -73,6 +74,9 @@ public class DanhSachTuVungFragment extends Fragment implements VocabularyEvent 
     @Override
     public void onItemPressed(Vocabulary vocabulary) {
         final Intent intent = new Intent(requireActivity(), VocabularyDetails.class);
+        Gson gson = new Gson();
+        String myJson = gson.toJson(vocabulary);
+        intent.putExtra("myjson",myJson);
         startActivity(intent);
 
     }
